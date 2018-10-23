@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>Funcionários</title>
+			<script
+  			 src="https://code.jquery.com/jquery-3.3.1.min.js"
+ 			 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  			 crossorigin="anonymous">
+  			 </script>
+
+
+			 <!-- Compiled and minified CSS -->
+   			 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   			<!-- Compiled and minified JavaScript -->
+    		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		</head>
+
+		<body>
+
+		<nav>
+		    <div class="nav-wrapper black">
+		      <a href="#!" class="brand-logo">Guep Technology</a>
+		      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+		      <ul class="right hide-on-med-and-down">
+		        <li><a class="btn green darken-4" href="/">Home</a></li>
+		      </ul>
+		    </div>
+  		</nav>
+
+		 <ul class="sidenav" id="mobile-demo">
+		   <li><a href="/">Home</a></li>
+		   <li><a href="/formulario_inclusao_funcionario">Novo</a></li>
+		 </ul>
+ 
+		<h4>Lista Funcionários</h4>
+
+		<table class="highlight" id="tabela">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Cargo</th>
+					<th>Data Nascimento</th>
+					<th>Email</th>
+					<th>Telefone</th>
+					<th>CPF</th>
+					<th>Ação</th>
+				</tr>
+			</thead>
+
+			<%	for(var i = 0; i < funcionario.length; i++){ %>
+			<tr>
+				<td><%= funcionario[i].id %></td>
+				<td><%= funcionario[i].nome %></td>
+				<td><%= funcionario[i].cargo %></td> 
+				<td><%= funcionario[i].dataNascimento %></td>	
+				<td><%= funcionario[i].email %></td>
+				<td><%= funcionario[i].telefone %></td>
+				<td><%= funcionario[i].cpf %></td>
+				<td>
+					<button href="" id="acao" class="black btn excluir" title = "<%= funcionario[i].id %>">
+						<i class="material-icons">delete_forever</i>
+					</button>
+
+					 <button id="<%= funcionario[i].id %>" data-target="modal1" class="black btn modal-trigger"> <i class="material-icons">refresh</i></button>
+				</td>		
+			</tr>
+			<% } %>
+		</table>	
+
+		 <div id="modal1" class="modal">
+		    <div class="modal-content">
+				<form class="col s12" method="post" action="/formulario_alterar">
+				 <div class="modal-content">
+				       <!--  <div class="input-field col s12"> -->
+				       	<i class="medium material-icons left">report_problem</i>
+				       		<h5>Alteração de Dados</h5>
+				       		<br>
+				        	<p>Prezado,</p>
+
+				        	<p>Para prosseguir com a alteração de dados clique em Continuar e preencha o formulário.</p>
+				          <input placeholder="ID" id="id" type="hidden" class="validate" name="id">
+				       <!--  </div> -->
+				         <button class="red btn waves-effect waves-light" type="submit">Continuar
+         					<i class="material-icons right">send</i>
+        				 </button>
+  				</div>
+  				</form>
+		    </div>  
+		  </div>
+
+</body>
+
+		<script>
+				$("#tabela tr td button.excluir").click(function(e){
+					e.preventDefault();
+					var id = $(this).attr("title");
+					var elemento = $(this).parent().parent().fadeOut(1000);
+				$.ajax({
+					type: "POST",
+					data: "id=" + id, 
+					url: "/funcionarios",
+					success: function(){
+						$(elemento).fadeOut(1000);
+					},
+					error: function(){
+						console.log("Erro na exclusão");
+					}
+				});
+			});
+
+				$(document).ready(function(){
+					$("#tabela tr td button").click(function(e){
+						e.preventDefault();
+						var id = $(this).attr('id');
+						$('#id').val(id);
+    					$('.modal').modal();
+    				});
+
+
+
+    				$('.sidenav').sidenav();
+	 
+ 				 });
+				
+		</script>
+
+</html>

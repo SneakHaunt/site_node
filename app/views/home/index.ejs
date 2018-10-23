@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>Home Funcionário</title>
+
+			<script
+  			src="https://code.jquery.com/jquery-3.3.1.min.js"
+  			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  			crossorigin="anonymous">		
+  			</script>
+
+			 <!-- Compiled and minified CSS -->
+   			 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   			<!-- Compiled and minified JavaScript -->
+    		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		</head>
+	<body>
+
+  <nav>
+    <div class="nav-wrapper black">
+      <a href="#!" class="brand-logo">Guep Technology</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="btn green darken-4" href="/formulario_inclusao_funcionario">Novo</a></li>
+        <li><a class="btn orange darken-4" href="/funcionarios">Listar Funcionários</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="/formulario_inclusao_funcionario">Novo</a></li>
+    <li><a href="/funcionarios">Lista</a></li>
+  </ul>
+          
+
+
+	<div class="parallax-container">
+      <div class="parallax"><img src="imagens/foto1.png"></div>
+    </div>
+    <div class="section black">
+      <div class="row container">
+        <h2 class="header white-text">Nós somos GUEP</h2>
+        <p class="green-text" style="font-size: 30px">Nossos valores são as convicções que unem nossos colaboradores e criam uma cultura comum à empresa, definindo nossa interação com os clientes, parceiros, fornecedores e sociedade na qual estamos inseridos.</p>
+      </div>
+    </div>
+    <div class="parallax-container">
+      <div class="parallax"><img src="imagens/foto2.jpg"></div>
+    </div>
+        
+
+
+
+	</body>
+
+	<script>
+	  $(document).ready(function(){
+	    $('.sidenav').sidenav();
+	    $('.parallax').parallax();
+	  });
+	</script>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>Cadastro Funcionário</title>
+      <style type="text/css">
+         .formulario{
+          border:3px solid black; 
+          }
+
+        .principal{
+          margin-top: 10px;
+        }
+      </style>
+
+			<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">  
+      </script>
+
+			   <!-- Compiled and minified CSS -->
+   			 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   			<!-- Compiled and minified JavaScript -->
+    		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    		<script type="text/javascript">    			    			
+    			 $(document).ready(function(){
+   					 $('.datepicker').datepicker();
+ 				 }); 				
+    		</script>
+		</head>
+
+<body>
+  <nav>
+    <div class="nav-wrapper black">
+      <a href="#!" class="brand-logo">Guep Technology</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="btn green darken-4" href="/">Home</a></li>
+        <li><a class="btn orange darken-4" href="/funcionarios">Listar Funcionários</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="/">Home</a></li>
+    <li><a href="/funcionarios">Lista</a></li>
+  </ul>
+
+
+<div class="principal">
+	<div class="row">
+    <form class="black formulario col s12" action="/funcionario/inserir" method="post">
+      <h4 class="white-text">Cadastro de Funcionário</h4>
+      
+      <!-- INICIO PRIMEIRA LINHA -->
+      <div class="row">
+        <div class="input-field col s12 m8">
+          <input class="white-text" placeholder="Ex: João da Silva" id="nome" type="text" class="validate" name="nome">
+          <label for="nome">Nome completo</label>
+        </div>
+
+        <div class="input-field col s12 m4">
+          <input class="white-text" placeholder="Ex: Desenvolvedor" id="cargo" type="text" class="validate" name="cargo">
+          <label for="cargo">Cargo</label>
+        </div>
+      </div>  
+      <!-- FINAL PRIMEIRA LINHA --> 
+
+         <!-- INICIO SEGUNDA LINHA -->
+       	 <div class="row">
+	         <div class="input-field col s12 m6">
+	         <input class="white-text" placeholder="Apenas números" id="cpf" type="text" class="validate" name="cpf">
+	         <label for="cpf">CPF</label>
+         	</div>
+     
+	        <div class="input-field col s12 m6">
+	          <input class="white-text" placeholder="DD/MM/YYYY" id="dataNascimento" type="date" class="validate" name="dataNascimento">
+	          <label for="dataNascimento">Data de Nascimento</label>
+	        </div>
+    	  </div>
+        <!-- FINAL SEGUNDA LINHA -->
+
+      <!-- INICIO TERCEIRA LINHA -->
+      <div class="row">
+        <div class="input-field col s12 m8">
+          <input class="white-text" placeholder="exemplo@guep.com.br" id="email" type="email" class="validate" name="email">
+          <label for="email">Email</label>
+        </div>
+
+         <div class="input-field col s12 m4">
+          <input class="white-text" placeholder="Apenas números" id="telefone" type="text" class="validate" name="telefone">
+          <label for="telefone">Telefone</label>
+        </div>
+      </div>     
+      <!-- FINAL TERCEIRA LINHA -->
+
+      <!-- INICIO QUARTA LINHA -->
+      <div class="row">
+       <button class="green darken-4 btn waves-effect waves-light col s12 m4" type="submit">Inserir
+         <i class="material-icons right">send</i>
+        </button>
+      </div>
+       <!-- FINAL QUARTA LINHA -->
+    </form>
+    
+  </div>
+ </div> 
+</body>
+
+<script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+</script>
+
+</html>
