@@ -9,5 +9,7 @@ Alterar o arquivo que contém dados de acesso ao banco: config/dbConnection.js
 
 
 
+
 Em seguida, executar script: dados.sql para criação de tabela e popular os dados.
 Dentro do diretório executar npm install para instalação de dependencias.
+
