@@ -10,6 +10,5 @@ var conexaoMySql = function(){
 }
 
 module.exports = function(){
-	console.log('Banco ON...');
 	return conexaoMySql;
 }

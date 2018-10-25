@@ -30,7 +30,7 @@ FuncionarioDAO.prototype.alterarFuncionario = function(funcionario){
 		funcionario.cpf,	
 		parseInt(funcionario.id)
 		], function(err, result){
-			console.log("Gravado");
+			if(err)
 			console.log("erro: "+ err);
 		});
 }
