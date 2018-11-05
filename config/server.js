@@ -29,12 +29,13 @@ extended: true permite maior controle.
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./app/public'));
-//app.use(expressValidator());
+app.use(expressValidator());
 
 consign()
 .include('app/routes')
 .then('config/dbConnection.js')
 .then('app/models')
+.then('app/controllers')
 .into(app);
 
 

@@ -1,17 +1,9 @@
 module.exports = function(app){
-		app.get("/formulario_inclusao_funcionario", function(req, res){
-			res.render("administrador/formulario_inclusao_funcionario");
-		});
+	app.get("/formulario_inclusao_funcionario", function(req, res){
+		app.app.controllers.admin.formulario_inclusao_funcionario(app, req, res);
+	});
 
-		app.post("/funcionario/inserir", function(req, res){
-			var formulario = req.body;
-
-			var conexao = app.config.dbConnection();
-
-			var funcionarioDAO = new app.app.models.FuncionarioDAO(conexao);
-
-			funcionarioDAO.inserirFuncionario(formulario, function(error, result){
-					res.redirect('/funcionarios');
-			});
-		});
+	app.post("/funcionario/inserir", function(req, res){
+		app.app.controllers.admin.funcionario_inserir(app, req, res);
+	});
 }

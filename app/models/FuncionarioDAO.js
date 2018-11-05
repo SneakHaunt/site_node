@@ -6,8 +6,8 @@ FuncionarioDAO.prototype.getFuncionarios = function(callback){
 	this._conexao.query('select *, DATE_FORMAT(dataNascimento,"%d/%m/%Y") as dataNascimento from tbfuncionario', callback);
 }
 
-FuncionarioDAO.prototype.getFuncionario = function(funcionario, callback){
-	this._conexao.query('select *, DATE_FORMAT(dataNascimento,"%Y-%m-%d") as dataNascimento from tbfuncionario where id = ?', [funcionario], callback);
+FuncionarioDAO.prototype.getFuncionario = function(id_funcionario, callback){
+	this._conexao.query('select *, DATE_FORMAT(dataNascimento,"%Y-%m-%d") as dataNascimento from tbfuncionario where id = ?', [id_funcionario.id], callback);
 }
 
 FuncionarioDAO.prototype.deletarFuncionario = function(id, callback){
